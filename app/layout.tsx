@@ -53,13 +53,19 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               </nav>
             </header>
             <main className="flex-1">{children}</main>
-            <footer className="flex flex-wrap items-baseline justify-between gap-3 border-t border-border pt-5 text-sm text-muted-foreground">
+            <footer className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-t border-border pt-3 text-sm text-muted-foreground">
               <p>A journal of one small vegetable plot, season by season.</p>
-              <nav aria-label="Footer" className="flex items-baseline gap-5">
-                <Link href="/" className="no-underline transition-colors hover:text-foreground">
+              <nav aria-label="Footer" className="-mr-2 flex items-center gap-1">
+                <Link
+                  href="/"
+                  className="inline-flex min-h-11 items-center rounded-md px-2 no-underline transition-colors hover:text-foreground"
+                >
                   All posts
                 </Link>
-                <Link href="/about" className="no-underline transition-colors hover:text-foreground">
+                <Link
+                  href="/about"
+                  className="inline-flex min-h-11 items-center rounded-md px-2 no-underline transition-colors hover:text-foreground"
+                >
                   About
                 </Link>
               </nav>
