@@ -30,15 +30,45 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <Providers>
           <div className="mx-auto flex min-h-screen max-w-3xl flex-col gap-10 px-6 py-10">
-            <header className="flex items-baseline justify-between gap-4 border-b border-border pb-5">
-              <Link href="/" className="text-lg font-semibold tracking-tight no-underline">
+            <header className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-b border-border pb-3">
+              <Link
+                href="/"
+                className="inline-flex min-h-11 items-center text-lg font-semibold tracking-tight no-underline"
+              >
                 {identity.name}
               </Link>
-              <span className="text-sm text-muted-foreground">Notes and essays</span>
+              <nav aria-label="Main" className="-mr-2 flex items-center gap-1 text-sm">
+                <Link
+                  href="/"
+                  className="inline-flex min-h-11 items-center rounded-md px-2 text-muted-foreground no-underline transition-colors hover:text-foreground"
+                >
+                  Journal
+                </Link>
+                <Link
+                  href="/about"
+                  className="inline-flex min-h-11 items-center rounded-md px-2 text-muted-foreground no-underline transition-colors hover:text-foreground"
+                >
+                  About
+                </Link>
+              </nav>
             </header>
             <main className="flex-1">{children}</main>
-            <footer className="border-t border-border pt-5 text-sm text-muted-foreground">
-              Built with Next.js.
+            <footer className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-t border-border pt-3 text-sm text-muted-foreground">
+              <p>A journal of one small vegetable plot, season by season.</p>
+              <nav aria-label="Footer" className="-mr-2 flex items-center gap-1">
+                <Link
+                  href="/"
+                  className="inline-flex min-h-11 items-center rounded-md px-2 no-underline transition-colors hover:text-foreground"
+                >
+                  All posts
+                </Link>
+                <Link
+                  href="/about"
+                  className="inline-flex min-h-11 items-center rounded-md px-2 no-underline transition-colors hover:text-foreground"
+                >
+                  About
+                </Link>
+              </nav>
             </footer>
           </div>
         </Providers>
