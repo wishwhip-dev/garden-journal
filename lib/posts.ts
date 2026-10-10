@@ -59,6 +59,7 @@ export function listPosts(): Post[] {
         blurb: typeof meta.blurb === "string" ? meta.blurb : "",
         published: typeof meta.published === "string" ? meta.published : "",
         tags: asStringArray(meta.tags),
+        season: asSeason(meta.season),
       });
     } catch {
       continue;
