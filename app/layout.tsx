@@ -30,15 +30,24 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <Providers>
           <div className="mx-auto flex min-h-screen max-w-3xl flex-col gap-10 px-6 py-10">
-            <header className="flex flex-wrap items-baseline justify-between gap-4 border-b border-border pb-5">
-              <Link href="/" className="text-lg font-semibold tracking-tight no-underline">
+            <header className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 border-b border-border pb-3">
+              <Link
+                href="/"
+                className="inline-flex min-h-11 items-center text-lg font-semibold tracking-tight no-underline"
+              >
                 {identity.name}
               </Link>
-              <nav aria-label="Main" className="flex items-baseline gap-5 text-sm">
-                <Link href="/" className="text-muted-foreground no-underline transition-colors hover:text-foreground">
+              <nav aria-label="Main" className="-mr-2 flex items-center gap-1 text-sm">
+                <Link
+                  href="/"
+                  className="inline-flex min-h-11 items-center rounded-md px-2 text-muted-foreground no-underline transition-colors hover:text-foreground"
+                >
                   Journal
                 </Link>
-                <Link href="/about" className="text-muted-foreground no-underline transition-colors hover:text-foreground">
+                <Link
+                  href="/about"
+                  className="inline-flex min-h-11 items-center rounded-md px-2 text-muted-foreground no-underline transition-colors hover:text-foreground"
+                >
                   About
                 </Link>
               </nav>
