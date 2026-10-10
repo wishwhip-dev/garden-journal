@@ -30,15 +30,30 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <Providers>
           <div className="mx-auto flex min-h-screen max-w-3xl flex-col gap-10 px-6 py-10">
-            <header className="flex items-baseline justify-between gap-4 border-b border-border pb-5">
+            <header className="flex flex-wrap items-baseline justify-between gap-4 border-b border-border pb-5">
               <Link href="/" className="text-lg font-semibold tracking-tight no-underline">
                 {identity.name}
               </Link>
-              <span className="text-sm text-muted-foreground">Notes and essays</span>
+              <nav aria-label="Main" className="flex items-baseline gap-5 text-sm">
+                <Link href="/" className="text-muted-foreground no-underline transition-colors hover:text-foreground">
+                  Journal
+                </Link>
+                <Link href="/about" className="text-muted-foreground no-underline transition-colors hover:text-foreground">
+                  About
+                </Link>
+              </nav>
             </header>
             <main className="flex-1">{children}</main>
-            <footer className="border-t border-border pt-5 text-sm text-muted-foreground">
-              Built with Next.js.
+            <footer className="flex flex-wrap items-baseline justify-between gap-3 border-t border-border pt-5 text-sm text-muted-foreground">
+              <p>A journal of one small vegetable plot, season by season.</p>
+              <nav aria-label="Footer" className="flex items-baseline gap-5">
+                <Link href="/" className="no-underline transition-colors hover:text-foreground">
+                  All posts
+                </Link>
+                <Link href="/about" className="no-underline transition-colors hover:text-foreground">
+                  About
+                </Link>
+              </nav>
             </footer>
           </div>
         </Providers>
