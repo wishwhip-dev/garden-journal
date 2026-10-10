@@ -1,6 +1,10 @@
 import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 
+export type Season = "spring" | "summer" | "autumn" | "winter";
+
+export const SEASONS: Season[] = ["spring", "summer", "autumn", "winter"];
+
 export type Post = {
   slug: string;
   title: string;
@@ -8,7 +12,13 @@ export type Post = {
   /** ISO date, `YYYY-MM-DD`. Sorted on as a string, so the format is not optional. */
   published: string;
   tags: string[];
+  /** The season the post belongs to, for the index filter. Empty when meta.json omits it. */
+  season: Season | "";
 };
+
+function asSeason(value: unknown): Season | "" {
+  return typeof value === "string" && (SEASONS as string[]).includes(value) ? (value as Season) : "";
+}
 
 const POSTS_DIRECTORY = path.join(process.cwd(), "app", "posts");
 
